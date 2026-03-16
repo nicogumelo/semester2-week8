@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include "points.h"
+#include <math.h>
 
 int main( void ) {
 
@@ -14,10 +15,20 @@ int main( void ) {
     printf(" Distance between (%.1f,%.1f) and (%.1f,%.1f) is %f\n", 
              p1.x,p1.y,p2.x,p2.y,distance(p1,p2));
     */
+
+    Point p1 = {1.0f, 1.0f};
+    Point p2 = {2.0f, 2.0f};
+
+    printf("%f\n", distance(p1, p2));
+
     return 0;
 }
 
 float distance( Point p, Point q ) {
     // implement distance here
-    return 0.0;
+
+    double dx = p.x - q.x;
+    double dy = p.y - q.y;
+
+    return (float)hypot(dx, dy);
 }

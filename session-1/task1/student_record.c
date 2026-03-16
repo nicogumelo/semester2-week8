@@ -31,6 +31,16 @@ float calculate_average(struct student_record student) {
 void display_student(struct student_record student) {
     // TODO: Implement this function to display student information
     // Format: Name, ID, individual marks, and average mark
+
+    printf("%s, %d, ", student.name, student.id);
+
+    float grade_sum = 0;
+    for (int i = 0; i < 3; i++) {
+        printf("%f, ", student.marks[i]);
+        grade_sum += student.marks[i];
+    }
+
+    printf("%f\n", (grade_sum / 3));
 }
 
 /*
@@ -41,6 +51,14 @@ int main( void ) {
     // Example: name = "John Smith", id = 12345, marks = {75.0, 68.5, 81.0}
     
     struct student_record student;
+    strcpy(student.name, "John Wick");
+    student.id = 1;
+    student.marks[0] = 100;
+    student.marks[1] = 50.2;
+    student.marks[2] = 82.9;
+
+
+    display_student(student);
     
     // TODO: display the student data and average mark
     
